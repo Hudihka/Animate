@@ -10,24 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 	
-	private var almostBiggest = UIImageView()
-	private var small = UIImageView()
-	private var almostTheSmallest = UIImageView()
-    private var bigCircle = UIImageView()
-    
-    
-
-	
-	
-	
-	
-    let durationTimeCurrent: TimeInterval = 0.3 //время на подняие шорки
-	var curtain = СurtainView()
+	private let durationCircle: TimeInterval = 1  //время на врфщения кружков
+    private let durationTimeCurrent: TimeInterval = 0.3 //время на подняие шорки
+	private var curtain = СurtainView()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		addBacgroundImage()
+		addCilklesViews()
 		
 		addCurtainnView()
 		
@@ -41,8 +32,51 @@ class ViewController: UIViewController {
 		
 	}
 	
+//	MARK: CIRKLE
 	
-	//ШТОРКА
+	private func addCilklesViews(){
+		
+		for obj in EnumCircleImage.allCases {
+			
+			let imageView = obj.imageView
+			self.view.addSubview(imageView)
+			
+			circleAnimation(view: imageView, size: obj)
+			
+		}
+	}
+	
+	private func circleAnimation(view: UIImageView, size: EnumCircleImage){
+		
+		let sizeEnum = size.valueEnumSize
+
+        UIView.animate(withDuration: durationCircle) {
+			
+			view.frame.size = sizeEnum.finishSize
+            view.alpha = 1
+        }
+
+
+		let circlePath = sizeEnum.circlePath
+
+        let animation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
+        animation.duration = durationCircle
+        animation.fillMode = CAMediaTimingFillMode.forwards//kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        animation.path = circlePath.cgPath
+
+        view.layer.add(animation, forKey: nil)
+
+        // circleLayer is only used to locate the circle animation path
+        let circleLayer = CAShapeLayer()
+        circleLayer.path = circlePath.cgPath
+        circleLayer.strokeColor = UIColor.clear.cgColor
+        circleLayer.fillColor = UIColor.clear.cgColor
+        self.view.layer.addSublayer(circleLayer)
+    }
+	
+	
+	//MARK: ШТОРКА
 	
 	
 	private func addCurtainnView() {

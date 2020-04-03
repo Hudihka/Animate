@@ -36,25 +36,37 @@ enum EnumCircleImage: CaseIterable {
 		
 		//значения для анимации по кругу
 		
-		var finishDiametr: CGFloat {
+		var circlePath: UIBezierPath {
+			return UIBezierPath(arcCenter: self.finishPoint,
+								radius: self.radius,
+								startAngle: self.startAngel,
+								endAngle: self.endAngel,
+								clockwise: false)
+		}
+		
+		
+		
+		var finishSize: CGSize {
 			
 			var k: CGFloat = 1
+			let k2 = hDdevice / 667
 			
 			switch self {
 			case .almostBiggest:
-				k = 136
+				k = 136 * k2
 			case .small:
-			    k = 18
+			    k = 18 * k2
 			case .almostTheSmallest:
-			    k = 69
+			    k = 69 * k2
 			default:
-				k = 260
+				k = 260 * k2
 			}
 			
-			return k * hDdevice / 667 * self.rawValue
+			return CGSize(width: k, height: k)
 		}
+
 		
-		var radius: CGFloat {
+		private var radius: CGFloat {
 			
 			switch self {
 			case .almostBiggest:
@@ -69,11 +81,11 @@ enum EnumCircleImage: CaseIterable {
 			
 		}
 		
-		var finishPoint: CGPoint {
+		private var finishPoint: CGPoint {
 			
 			switch self {
 			case .almostBiggest:
-				return CGPoint(x: wDdevice * 0.75, y: hDdevice * 0.6)
+				return CGPoint(x: wDdevice * 0.72, y: hDdevice * 0.5)
 			case .small:
 				return CGPoint(x: wDdevice * 0.5, y: hDdevice * 0.35)
 			case .almostTheSmallest:
@@ -85,7 +97,7 @@ enum EnumCircleImage: CaseIterable {
 		}
 		
 		
-		var startAngel: Double {
+		private var startAngel: CGFloat {
 			
 			if self == .almostBiggest{
 				return -3 * .pi / 5
@@ -95,7 +107,7 @@ enum EnumCircleImage: CaseIterable {
 			
 		}
 		
-		var endAngel: Double {
+		private var endAngel: CGFloat {
 			
 			switch self {
 			case .almostBiggest:
@@ -125,28 +137,19 @@ enum EnumCircleImage: CaseIterable {
 		}
 	}
 	
-	enum FinishDiametr: CGFloat, CaseIterable{
-		case almostBiggest = 136
-		case small = 18
-		case almostTheSmallest = 69
-		case bigCircle = 260
-		
-		var diametr: CGFloat {
-			let i = FinishDiametr.allCases.firstIndex(of: self)!
-			let height = 667 * EnumCircleImageSize.allCases[i].rawValue
-			
-			return (self.rawValue * hDdevice) / height
-		}
-		
+	private var activeIndex: Int{
+		return EnumCircleImage.allCases.firstIndex(of: self)!
+	}
+	
+	var valueEnumSize: EnumCircleImageSize {
+		return EnumCircleImageSize.allCases[activeIndex]
 	}
 	
 	
 	var imageView: UIImageView{
 		
-		let i = EnumCircleImage.allCases.firstIndex(of: self)!
-		
-		let rect = EnumCircleImageSize.allCases[i].rect
-		let image = NameImage.allCases[i].image
+		let rect = valueEnumSize.rect
+		let image = NameImage.allCases[activeIndex].image
 		
 		let imgView = UIImageView(frame: rect)
 		imgView.image = image
