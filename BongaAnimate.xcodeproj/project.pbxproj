@@ -15,6 +15,7 @@
 		5287D94B24370DB100D5AE1B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287D94A24370DB100D5AE1B /* Constant.swift */; };
 		5287D95B243768B300D5AE1B /* СurtainView+UIGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287D959243768B300D5AE1B /* СurtainView+UIGesture.swift */; };
 		5287D95C243768B300D5AE1B /* СurtainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287D95A243768B300D5AE1B /* СurtainView.swift */; };
+		52FA2A1624376DBD00B43F8E /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA2A1524376DBD00B43F8E /* LogoAnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5287D94A24370DB100D5AE1B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		5287D959243768B300D5AE1B /* СurtainView+UIGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СurtainView+UIGesture.swift"; sourceTree = "<group>"; };
 		5287D95A243768B300D5AE1B /* СurtainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СurtainView.swift"; sourceTree = "<group>"; };
+		52FA2A1524376DBD00B43F8E /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				5287D95A243768B300D5AE1B /* СurtainView.swift */,
 				5287D959243768B300D5AE1B /* СurtainView+UIGesture.swift */,
+				52FA2A1524376DBD00B43F8E /* LogoAnimationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			files = (
 				5287D95C243768B300D5AE1B /* СurtainView.swift in Sources */,
 				5287D93B24370CF200D5AE1B /* ViewController.swift in Sources */,
+				52FA2A1624376DBD00B43F8E /* LogoAnimationView.swift in Sources */,
 				5287D95B243768B300D5AE1B /* СurtainView+UIGesture.swift in Sources */,
 				5287D93724370CF200D5AE1B /* AppDelegate.swift in Sources */,
 				5287D94B24370DB100D5AE1B /* Constant.swift in Sources */,
