@@ -10,17 +10,37 @@ import UIKit
 
 class ViewController: UIViewController {
 	
+	private var almostBiggest = UIImageView()
+	private var small = UIImageView()
+	private var almostTheSmallest = UIImageView()
+    private var bigCircle = UIImageView()
+    
+    
+
+	
+	
+	
+	
     let durationTimeCurrent: TimeInterval = 0.3 //время на подняие шорки
 	var curtain = СurtainView()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		self.view.backgroundColor = UIColor.red
+		addBacgroundImage()
 		
 		addCurtainnView()
 		
 	}
+	
+	private func addBacgroundImage(){
+		
+		let image = UIImageView(frame: CGRect(origin: .zero, size: view.frame.size))
+		image.image = UIImage(named: "Bacground")
+		self.view.addSubview(image)
+		
+	}
+	
 	
 	//ШТОРКА
 	
