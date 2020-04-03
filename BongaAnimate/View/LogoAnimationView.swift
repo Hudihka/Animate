@@ -46,7 +46,8 @@ class LogoAnimationView: UIView {
 
     private func createImageLogo(){
         imageLogo = UIImageView(image: UIImage(named: "animationLogo"))
-
+		imageLogo.backgroundColor = UIColor.red
+		
         imageLogo.frame.size = CGSize(width: 1, height: 1)
         imageLogo.center = self.center
         self.addSubview(imageLogo)
@@ -73,7 +74,7 @@ class LogoAnimationView: UIView {
 
     private func createLabel(){
 
-        let constant = 0.3 * weight
+        let constant = 0.25 * weight
 
         let pointX = (wDdevice - 180) / 2
         let pointY = (hDdevice / 2) + constant
@@ -85,8 +86,9 @@ class LogoAnimationView: UIView {
 
         labelText.numberOfLines = 2
         labelText.backgroundColor = UIColor.clear
-        labelText.textColor = UIColor.clear
-        labelText.text = "enjoyChatting"//localized("enjoyChatting")
+        labelText.textColor = UIColor.white
+		labelText.alpha = 0
+        labelText.text = "enjoyChatting jjhjhhhhh"//localized("enjoyChatting")
         labelText.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium)
         labelText.textAlignment = NSTextAlignment.center;
 
@@ -99,7 +101,7 @@ class LogoAnimationView: UIView {
 					   delay: 1.3,
 					   options: [],
 					   animations: {
-			self.labelText.textColor = UIColor.white
+			self.labelText.alpha = 1
 		}, completion: nil)
     }
 
@@ -107,13 +109,6 @@ class LogoAnimationView: UIView {
 		
 		
 		let imageFR = self.imageLogo.frame
-		let labelFR = self.labelText.frame
-
-		let position = 0.6 * self.weight
-
-		let scale = 0.10 * imageFR.height
-		let delta = imageFR.origin.y - position
-		let deltaLabel = labelFR.origin.y - delta - scale
 		
 		
 		UIView.animate(withDuration: 0.3,
@@ -121,12 +116,12 @@ class LogoAnimationView: UIView {
 					   options: [],
 					   animations: {
 						
-						self.imageLogo.frame = self.imageLogo.newYPositionFrame(newY: position)
+						self.imageLogo.frame.origin = self.imageLogo.newYPositionFrame
 
 						self.imageLogo.transform = CGAffineTransform(scaleX: 0.85 * imageFR.width,
 															 y: 0.90 * imageFR.height)
 
-						self.imageLogo.frame = self.imageLogo.newYPositionFrame(newY: deltaLabel)
+						self.labelText.frame.origin = self.labelText.newYPositionFrame
 
 		},
 					   completion: nil)
@@ -149,8 +144,8 @@ extension UIImageView{
     func rotate() {
         let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotation.toValue = NSNumber(value: -Double.pi/4)
-        rotation.beginTime = CACurrentMediaTime() + 0.8
-        rotation.duration = 0.5
+        rotation.beginTime = CACurrentMediaTime() + 1
+        rotation.duration = 0.4
         rotation.fillMode = CAMediaTimingFillMode.forwards//kCAFillModeForwards
         rotation.isRemovedOnCompletion = false
         rotation.repeatCount = 1
@@ -160,14 +155,12 @@ extension UIImageView{
 
 extension UIView{
 	
-	func newYPositionFrame(newY: CGFloat) -> CGRect{
+	var newYPositionFrame:  CGPoint{
 		
 		let frame = self.frame
 		
-		return CGRect(x: frame.origin.x,
-					  y: newY,
-					  width: frame.width,
-					  height: frame.height)
+		return CGPoint(x: frame.origin.x,
+					  y: 0)//frame.origin.y - hDdevice * 0.2)
 		
 	}
 	

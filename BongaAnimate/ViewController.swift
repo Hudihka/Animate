@@ -18,7 +18,8 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		
 		addBacgroundImage()
-		addCilklesViews()
+		addImageLogo()
+//		addCilklesViews()
 		
 		addCurtainnView()
 		
@@ -31,6 +32,13 @@ class ViewController: UIViewController {
 		self.view.addSubview(image)
 		
 	}
+	
+// MARK: LOGO
+	
+    private func addImageLogo(){
+        let logoAnimationView = LogoAnimationView(frame: self.view.frame)
+        self.view.addSubview(logoAnimationView)
+    }
 	
 //	MARK: CIRKLE
 	
