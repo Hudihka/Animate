@@ -46,7 +46,6 @@ class LogoAnimationView: UIView {
 
     private func createImageLogo(){
         imageLogo = UIImageView(image: UIImage(named: "animationLogo"))
-		imageLogo.backgroundColor = UIColor.red
 		
         imageLogo.frame.size = CGSize(width: 1, height: 1)
         imageLogo.center = self.center
@@ -107,8 +106,12 @@ class LogoAnimationView: UIView {
 
     private func imageFinishAnimation(){ //движение лейбла и лого в верх
 		
-		
 		let imageFR = self.imageLogo.frame
+		
+		let newPositionLabel = CGPoint(x: labelText.frame.origin.x,
+									   y: (hDdevice * 0.15) + imageFR.height * 0.65)
+		
+		let newPositionLogo = CGPoint(x: imageFR.origin.x, y: hDdevice * 0.15)
 		
 		
 		UIView.animate(withDuration: 0.3,
@@ -116,12 +119,12 @@ class LogoAnimationView: UIView {
 					   options: [],
 					   animations: {
 						
-						self.imageLogo.frame.origin = self.imageLogo.newYPositionFrame
+						self.imageLogo.frame.origin = newPositionLogo
 
 						self.imageLogo.transform = CGAffineTransform(scaleX: 0.85 * imageFR.width,
 															 y: 0.90 * imageFR.height)
 
-						self.labelText.frame.origin = self.labelText.newYPositionFrame
+						self.labelText.frame.origin = newPositionLabel
 
 		},
 					   completion: nil)
@@ -153,15 +156,15 @@ extension UIImageView{
     }
 }
 
-extension UIView{
-	
-	var newYPositionFrame:  CGPoint{
-		
-		let frame = self.frame
-		
-		return CGPoint(x: frame.origin.x,
-					  y: 0)//frame.origin.y - hDdevice * 0.2)
-		
-	}
-	
-}
+//extension UIView{
+//
+//	func newYPositionFrame(koef: CGFloat) -> CGPoint{
+//
+//		let frame = self.frame
+//
+//		return CGPoint(x: frame.origin.x,
+//					  y: hDdevice * koef)
+//
+//	}
+//
+//}

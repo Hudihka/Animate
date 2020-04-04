@@ -18,10 +18,11 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		
 		addBacgroundImage()
+		addCilklesViews()
 		addImageLogo()
-//		addCilklesViews()
 		
 		addCurtainnView()
+		
 		
 	}
 	
