@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5287D93724370CF200D5AE1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287D93624370CF200D5AE1B /* AppDelegate.swift */; };
-		5287D93B24370CF200D5AE1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287D93A24370CF200D5AE1B /* ViewController.swift */; };
+		5287D93B24370CF200D5AE1B /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287D93A24370CF200D5AE1B /* AnimationViewController.swift */; };
 		5287D93E24370CF200D5AE1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287D93C24370CF200D5AE1B /* Main.storyboard */; };
 		5287D94024370CF400D5AE1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5287D93F24370CF400D5AE1B /* Assets.xcassets */; };
 		5287D94324370CF400D5AE1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287D94124370CF400D5AE1B /* LaunchScreen.storyboard */; };
@@ -22,7 +22,7 @@
 /* Begin PBXFileReference section */
 		5287D93324370CF200D5AE1B /* BongaAnimate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BongaAnimate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5287D93624370CF200D5AE1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5287D93A24370CF200D5AE1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5287D93A24370CF200D5AE1B /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		5287D93D24370CF200D5AE1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5287D93F24370CF400D5AE1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5287D94224370CF400D5AE1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				5287D93624370CF200D5AE1B /* AppDelegate.swift */,
-				5287D93A24370CF200D5AE1B /* ViewController.swift */,
+				5287D93A24370CF200D5AE1B /* AnimationViewController.swift */,
 				5287D93C24370CF200D5AE1B /* Main.storyboard */,
 				5287D94A24370DB100D5AE1B /* Constant.swift */,
 				5287D93F24370CF400D5AE1B /* Assets.xcassets */,
@@ -160,7 +160,7 @@
 			files = (
 				52FA2A1824379B7400B43F8E /* EnumCircleImage.swift in Sources */,
 				5287D95C243768B300D5AE1B /* СurtainView.swift in Sources */,
-				5287D93B24370CF200D5AE1B /* ViewController.swift in Sources */,
+				5287D93B24370CF200D5AE1B /* AnimationViewController.swift in Sources */,
 				52FA2A1624376DBD00B43F8E /* LogoAnimationView.swift in Sources */,
 				5287D95B243768B300D5AE1B /* СurtainView+UIGesture.swift in Sources */,
 				5287D93724370CF200D5AE1B /* AppDelegate.swift in Sources */,

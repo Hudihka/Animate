@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AnimationViewController: UIViewController {
 	
 	private let durationCircle: TimeInterval = 1  //время на врфщения кружков
     private let durationTimeCurrent: TimeInterval = 0.3 //время на подняие шорки
@@ -129,10 +129,43 @@ class ViewController: UIViewController {
 
 extension ViewController: СurtainViewDelegate {
 	func tapedButton() {
-		///
+		performSegue(withIdentifier: "PlayNVC", sender: nil)
 	}
 	
 	func tapedButtonNewAcc() {
-		////
+		let VC = SignUpViewController.route(delegate: self, withinNavigationController: true)
+		present(VC, animated: true, completion: nil)
 	}
+}
+
+
+extension AnimationViewController: UIViewControllerTransitioningDelegate{
+	
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let secondVC = segue.destination as! LoginViewController
+        secondVC.transitioningDelegate = self
+        secondVC.modalPresentationStyle = .custom
+    }
+
+
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+
+        transition.startingPoint = CGPoint(x: wDdevice / 2,
+                                           y: hDdevice - 130)
+		
+        transition.circleColor = UIColor(red: 241.0/255.0,
+										 green: 243.0/255.0,
+										 blue: 244.0/255.0, alpha: 1)
+
+        return transition
+    }
+}
+
+
+
+extension AnimationViewController: SignUpViewControllerDelegate{
+	
+	
+	
 }
